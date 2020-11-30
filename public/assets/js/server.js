@@ -1,6 +1,3 @@
-
-app.use(express.static('public'))
-
 // Dependencies
 // =============================================================
 const express = require("express");
@@ -15,6 +12,8 @@ const  PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//css file to use it on public
+app.use(express.static('public'))
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/notes", function(req, res) {
@@ -24,9 +23,14 @@ app.get("*", function(req, res) {
 	res.sendFile(path.join(__dirname, "../../index.html"));
 });
 
+app.get("/api/notes", function(req, res) {
+	res.sendFile(path.join(__dirname, "../db.json"));
+});
+
 
 
 
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
   });
+
