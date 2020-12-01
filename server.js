@@ -17,19 +17,19 @@ app.use(express.static('public'))
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/notes", function(req, res) {
-	res.sendFile(path.join(__dirname, "../../notes.html"));
-});
-app.get("*", function(req, res) {
-	res.sendFile(path.join(__dirname, "../../index.html"));
+	res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 app.get("/api/notes", function(req, res) {
-	res.sendFile(path.join(__dirname, "../db.json"));
+	res.sendFile(path.join(__dirname, "/db/db.json"));
 });
 
+app.get("/", function(req, res) {
+	res.sendFile(path.join(__dirname, "/public/index.html"));
+});
 
-
-
+// Starts the server to begin listening
+// =============================================================
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
   });
