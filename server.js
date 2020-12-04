@@ -9,7 +9,6 @@ var fs = require("fs");
 const  app = express();
 const  PORT = process.env.PORT || 3000;
 
-
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -27,7 +26,7 @@ app.get("/api/notes", function(req, res) {
 });
 
 app.get("/api/notes/:id", function(req, res) {
-    var savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    var savedNotes = JSON.parse(fs.readFileSync("/db/db.json", "utf8"));
 	res.json(savedNotes[req.params.id]);
 	console.log(req.params.id)
 });
@@ -37,7 +36,7 @@ app.get("*", function(req, res) {
 });
 
 app.post("/api/notes", function(req, res) {
-	var savedNotes = JSON.parse(fs.readFileSync("./db/db.JSON", "utf8"));
+	var savedNotes = JSON.parse(fs.readFileSync("/db/db.JSON", "utf8"));
 	var newNote = req.body;
 	savedNotes.push(newNote);
 
