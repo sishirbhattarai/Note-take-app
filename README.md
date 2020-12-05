@@ -22,10 +22,13 @@ HTML, CSS, JS, npm, node
 
 ## Testing on localhost:
 
+ host the app
 ![Image](./public/assets/Capture1.PNG)
 
+ notes
 ![Image](./public/assets/Capture2.PNG)
 
+ save the notes
 ![Image](./public/assets/Capture3.PNG)
 
 
